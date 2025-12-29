@@ -1,1 +1,40 @@
-<p>header works!</p>
+<header class="sticky top-0 z-50 backdrop-blur-lg bg-white/80 shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-2 text-xl font-semibold text-indigo-600">
+      <span class="bg-indigo-600 text-white px-3 py-1 rounded-xl">S</span>
+      ShopKart
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8 text-gray-600 font-medium">
+      <a routerLink="/" class="hover:text-indigo-600 transition">Home</a>
+      <a routerLink="/products" class="hover:text-indigo-600 transition">Products</a>
+      <a routerLink="/cart" class="hover:text-indigo-600 transition">Cart</a>
+    </nav>
+
+    <!-- Right Controls -->
+    <div class="flex items-center gap-5">
+
+      <!-- Cart Icon -->
+      <a routerLink="/cart" class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="w-7 h-7 text-gray-700 hover:text-indigo-600 transition"
+             fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m13-9l2 9m-5-4a1 1 0 11-2 0 1 1 0 012 0zm-7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+        </svg>
+
+        <!-- Badge -->
+        <span *ngIf="items().length"
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold
+                 w-5 h-5 flex items-center justify-center rounded-full animate-bounce">
+          {{ items().length }}
+        </span>
+      </a>
+    </div>
+
+  </div>
+</header>
+<router-outlet></router-outlet>

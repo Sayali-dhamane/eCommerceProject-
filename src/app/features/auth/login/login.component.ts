@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { FakestoreApiService } from '../../../core/api/fakestore-api.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { storage } from '../../../core/utils/storage';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -1,18 +1,26 @@
 <app-header></app-header>
 
-  <div class="container">
-    <h2>Your Cart</h2>
+<div class="max-w-5xl mx-auto px-4 py-8">
+   <div class="flex flex-row justify-between">
+  <h2 class="text-3xl font-bold text-gray-900 mb-6">Your Cart</h2>
+   <!-- Subtotal -->
+  <h3 *ngIf="items().length" class="text-xl font-semibold text-gray-900 text-right">
+    Subtotal: ₹ {{ subtotal() }}
+  </h3>
+  </div>
+  <!-- Empty Cart Message -->
+  <p *ngIf="!items().length" class="text-center text-gray-500 text-lg py-10">
+    Your cart is empty 🛒
+  </p>
 
-    <p *ngIf="!items().length" class="empty">
-      Your cart is empty 🛒
-    </p>
-
+  <!-- Cart Items -->
+  <div *ngIf="items().length" class="space-y-4">
     <app-cart-item
       *ngFor="let i of items()"
-      [item]="i">
+      [item]="i"
+      class="bg-white rounded-xl"
+    >
     </app-cart-item>
-
-    <h3 *ngIf="items().length">
-      Subtotal: ₹ {{ subtotal() }}
-    </h3>
   </div>
+
+</div>

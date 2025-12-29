@@ -1,16 +1,39 @@
-<div class="cart-item">
-    <img [src]="item.image">
+<div class="flex flex-col md:flex-row items-center gap-4 p-6 mb-4 bg-white rounded-lg shadow hover:shadow-lg transition">
 
-    <div class="details">
-      <h4>{{ item.title }}</h4>
-      <p>₹ {{ item.price }}</p>
+  <!-- Product Image -->
+  <img
+    [src]="item.image"
+    [alt]="item.title"
+    class="w-full md:w-32 h-32 rounded-lg"
+  />
 
-      <input type="number"
-             [value]="item.quantity"
-             min="1"
-             (input)="onQtyChange($event)">
+  <!-- Details -->
+  <div class="flex-1 flex flex-col gap-2">
 
-      <button class="remove" (click)="remove()">Remove</button>
+    <!-- Title & Price -->
+    <h4 class="text-lg font-semibold text-gray-900">{{ item.title }}</h4>
+    <p class="text-indigo-600 font-bold">₹ {{ item.price }}</p>
+
+    <!-- Quantity Input -->
+    <div class="flex items-center gap-2">
+      <label class="sr-only">Quantity</label>
+      <input
+        type="number"
+        [value]="item.quantity"
+        min="1"
+        (input)="onQtyChange($event)"
+        class="w-20 text-center border rounded-lg py-1 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      />
     </div>
+
+    <!-- Remove Button -->
+    <button
+      (click)="remove()"
+      class="mt-2 w-32 py-1 px-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+    >
+      Remove
+    </button>
+
   </div>
-  `,
+
+</div>

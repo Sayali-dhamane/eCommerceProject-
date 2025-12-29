@@ -1,5 +1,5 @@
 import { Component, signal, Signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CLIENT_RENEG_LIMIT } from 'tls';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -12,7 +12,7 @@ interface employeface {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, CommonModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

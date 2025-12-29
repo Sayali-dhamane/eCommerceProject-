@@ -1,6 +1,8 @@
 <app-header></app-header>
-
-<div class="max-w-7xl mx-auto px-4 py-8" *ngIf="!loading">
+ <p *ngIf="error()" class="text-red-600 text-lg py-4 text-center">
+    {{ error() }}
+  </p>
+<div class="max-w-7xl mx-auto px-4 py-8" *ngIf="!loading && !error()">
 
   <!-- Product Details Card -->
   <div *ngIf="product" class="flex flex-col md:flex-row bg-white rounded-xl shadow-lg overflow-hidden gap-6">

@@ -21,12 +21,15 @@
       </option>
     </select>
   </div>
-
+ 
   <!-- Loader -->
   <app-loader *ngIf="loading" class="flex justify-center my-10"></app-loader>
-
+ <!-- Error Message -->
+  <p *ngIf="error()" class="text-red-600 text-lg py-4">
+    {{ error() }}
+  </p>
   <!-- Products Grid -->
-  <div *ngIf="!loading"
+  <div *ngIf="!loading && !error()"
      class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
   <app-product-card
     *ngFor="let p of products"

@@ -7,6 +7,7 @@ import { Product } from '../../../core/models/product.model';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
 import { LoaderComponent } from '../../../shared/components/loader/loader.component';
+import { errorSignal } from '../../../core/utils/error.signal';
 
 @Component({
   selector: 'app-products',
@@ -22,7 +23,7 @@ import { LoaderComponent } from '../../../shared/components/loader/loader.compon
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-
+  error = errorSignal;
   products: Product[] = [];
   categories: string[] = [];
   loading = false;

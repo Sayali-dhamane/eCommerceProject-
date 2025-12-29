@@ -7,6 +7,7 @@ import { CartStore } from '../../../features/cart/cart.store';
 import { Product } from '../../../core/models/product.model';
 import { LoaderComponent } from "../../../shared/components/loader/loader.component";
 import { HeaderComponent } from "../../../shared/components/header/header.component";
+import { errorSignal } from '../../../core/utils/error.signal';
 @Component({
   selector: 'app-product-details',
   imports: [CommonModule, FormsModule, LoaderComponent, HeaderComponent],
@@ -18,7 +19,7 @@ export class ProductDetailsComponent {
   product!: Product;
   quantity = 1;
   loading = false;
-
+  error = errorSignal;
   constructor(
     private api: FakestoreApiService,
     private route: ActivatedRoute,

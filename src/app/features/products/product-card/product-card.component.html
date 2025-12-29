@@ -1,1 +1,8 @@
-<p>product-card works!</p>
+<div class="product-card" [routerLink]="['/products', product.id]">
+    <img [src]="product.image" alt="{{ product.title }}">
+
+    <div class="info">
+      <h4>{{ product.title }}</h4>
+      <p class="price">₹ {{ product.price }}</p>
+    </div>
+  </div>

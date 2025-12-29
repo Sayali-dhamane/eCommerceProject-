@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<app-header></app-header>
+
+  <div class="container">
+    <h2>Your Cart</h2>
+
+    <p *ngIf="!items().length" class="empty">
+      Your cart is empty 🛒
+    </p>
+
+    <app-cart-item
+      *ngFor="let i of items()"
+      [item]="i">
+    </app-cart-item>
+
+    <h3 *ngIf="items().length">
+      Subtotal: ₹ {{ subtotal() }}
+    </h3>
+  </div>

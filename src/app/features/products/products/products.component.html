@@ -1,1 +1,25 @@
-<p>products works!</p>
+<app-header></app-header>
+
+  <div class="container">
+    <h2 class="title">Products</h2>
+
+    <!-- Category Filter -->
+    <select class="category-select" (change)="onCategoryChange($event)">
+      <option value="">All Categories</option>
+      <option *ngFor="let cat of categories" [value]="cat">
+        {{ cat | titlecase }}
+      </option>
+    </select>
+
+    <!-- Loader -->
+    <app-loader *ngIf="loading"></app-loader>
+
+    <!-- Products Grid -->
+    <div class="grid" *ngIf="!loading">
+      <app-product-card
+        *ngFor="let p of products"
+        [product]="p"
+        (click)="openDetails(p.id)">
+      </app-product-card>
+    </div>
+  </div>

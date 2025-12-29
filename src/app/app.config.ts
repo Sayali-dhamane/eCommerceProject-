@@ -1,10 +1,19 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideHttpClient, withInterceptors, withFetch } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideServerRendering } from '@angular/platform-server';
+import { authTokenInterceptor } from './core/interceptors/auth-token.interceptor';
 
+/**
+ * Global application providers for standalone Angular app
+ */
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay())]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(
+      withFetch(),                       // enables fetch for SSR
+      withInterceptors([authTokenInterceptor])
+    )
+  ]
 };
